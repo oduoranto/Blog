@@ -6,6 +6,6 @@ from django.contrib.auth.models import User
 class PostModel(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    author = models.ForeignKey()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
