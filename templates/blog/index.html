@@ -1,96 +1,41 @@
 {% extends 'partials/base.html' %}
 
 {%block content%}
-  <div class="container S">
+  <div class="container">
      <div class="row mt-5 pt-3">
         <div class="col-md-4">
-            <div class="card my-3 shadow">
+            <div class="card shadow my-3">
                 <div class="card-body">
-                    <h3>Form</h3>
+                     <form> 
+                        {% csrf_token %}
+                        {{form}}
+                        <input class="btn btn-primary btn-block" type="submit" value="post"> </input>
+                     </form>
                 </div>
             </div>
-
-        </div>
+          </div>
         <div class="col-md-8">
+            {% for post in posts%}
             <div class="card shadow my-3">
               <div class="card-body">
-                <div class="row">
+                <div class="row ">
                     <div class="col-md-4">
                         <img src="" alt="img">
                     </div>
                     <div class="col-md-8">
-                        <small>2nd July 2024</small>
+                        <small>{{ post.date_created }}</small>
                         <hr>
-                        <a href="">First Post</a>
+                        <a href="">{{post.title}}</a>
                         <p class="text-justify my-3">
-                            Anything's possible, you gotta 
-                            dream like you've never seen obstacles. 
-
+                            {{post.content}}
                         </p>
                     </div>
                 </div>
+                
             </div>
         </div>  
-        <div class="card shadow my-3">
-            <div class="card-body">
-              <div class="row">
-                  <div class="col-md-4">
-                      <img src="" alt="img">
-                  </div>
-                  <div class="col-md-8">
-                      <small>2nd July 2024</small>
-                      <hr>
-                      <a href="">First Post</a>
-                      <p class="text-justify my-3">
-                          Anything's possible, you gotta 
-                          dream like you've never seen obstacles. 
-
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="card shadow my-2">
-        <div class="card-body">
-          <div class="row">
-              <div class="col-md-4">
-                  <img src="" alt="img">
-              </div>
-              <div class="col-md-8">
-                  <small>2nd July 2024</small>
-                  <hr>
-                  <a href="">First Post</a>
-                  <p class="text-justify my-3">
-                      Anything's possible, you gotta 
-                      dream like you've never seen obstacles. 
-
-                  </p>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="card shadow my-2">
-    <div class="card-body">
-      <div class="row">
-          <div class="col-md-4">
-              <img src="" alt="img">
-          </div>
-          <div class="col-md-8">
-              <small>2nd July 2024</small>
-              <hr>
-              <a href="">First Post</a>
-              <p class="text-justify my-3">
-                  Anything's possible, you gotta 
-                  dream like you've never seen obstacles. 
-
-              </p>
-          </div>
-      </div>
-  </div>
-</div>
-
-
-      </div>
+        {% endfor %}
+       </div>
      </div>
   </div>
 
