@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import PostModel
 from .forms import PostModelForm
 
@@ -9,11 +9,12 @@ def index(request):
         form = PostModelForm(request.POST)
         if form.is_valid():
            instance = form.save(commit=False)
-           instance.auther = request.user
+           instance.author = request.user
            instance.save()
+           return redirect('index-blog')
     else:
+      form = PostModelForm()
 
-        form = PostModelForm()
     context = {
         'posts': posts,
         'form' : form
