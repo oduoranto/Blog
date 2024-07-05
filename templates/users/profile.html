@@ -19,11 +19,11 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="" alt="profile-img">
+                            <img class="img-thumbnail" src="{{user.profilemodel.image.url}}" alt="profile-img">
                         </div>
                         <div class="col-md-8">
-                            <h4>Name: anto</h4>
-                            <h4>Email: anto@gmail.com</h4>
+                            <h5>Name: {{ user.username}}</h5>
+                            <h5>Email: {{user.email}}</h5>
                         </div>
                     </div>
  
