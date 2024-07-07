@@ -11,7 +11,7 @@ def index(request):
            instance = form.save(commit=False)
            instance.author = request.user
            instance.save()
-           return redirect('index-blog')
+           return redirect('blog-index')
     else:
       form = PostModelForm()
 

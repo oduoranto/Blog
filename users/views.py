@@ -9,7 +9,7 @@ def sign_up(request):
       form = SignUpForm(request.POST)
       if form.is_valid():
          form.save()
-         return redirect('index-blog')
+         return redirect('users-login')
 
     else:
        form = SignUpForm()  
@@ -20,3 +20,4 @@ def sign_up(request):
 
 def profile(request):
    return render(request, 'users/profile.html')
+
