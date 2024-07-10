@@ -46,6 +46,15 @@ def post_edit(request, pk):
    return render(request, 'blog/post_edit.html', context)\
    
 def post_delete(request, pk):
+   post = PostModel.objects.get(id=pk)
+   if request.method == 'POST':
+      post.delete()
+      return redirect('blog-index')
+
+
+   context ={
+      'post': post,
+   }
 
    return render(request, 'blog/post_delete.html')
 
