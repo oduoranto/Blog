@@ -34,4 +34,4 @@ def post_edit(request, pk):
    context={
       'post' : post,
    }
-   return(request, 'blog/post_edit.html', context)
+   return render(request, 'blog/post_edit.html', context)
