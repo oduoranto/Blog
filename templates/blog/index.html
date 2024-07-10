@@ -26,7 +26,8 @@
                     <div class="col-md-8">
                         <small>{{ post.date_created }}</small>
                         <hr>
-                        <a  class="h3" href="{% url 'blog-post-detail' post.id %}">{{post.title}}</a>
+                        <a  class="h3" href="{% url 'blog-post-detail' post.id %}">
+                         <h6> {{post.title}}</h6></a>
                         <p class="text-justify my-3">
                             {{post.content}}
                         </p>
