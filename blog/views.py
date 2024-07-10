@@ -23,19 +23,24 @@ def index(request):
 
 def post_detail(request, pk):
    post = PostModel.objects.get(id=pk)
-   if request.method == 'POST':
-      form = PostUpdateForm(request.POST)
-   else:
-      form = PostUpdateForm()   
+   
    context = {
       'post': post,
-       'form' : form,
+       
    }
    return render(request, 'blog/post_detail.html', context)    
 
 def post_edit(request, pk):
    post = PostModel.objects.get(id=pk)
+   if request.method == 'POST':
+      form = PostUpdateForm(request.POST, instance=post)
+      if post.is_valid():
+         form.save()
+         return redirect('blog-post-detail')
+   else:
+      form = PostUpdateForm(instance=post)  
    context={
       'post' : post,
+      'form' : form,
    }
    return render(request, 'blog/post_edit.html', context)
