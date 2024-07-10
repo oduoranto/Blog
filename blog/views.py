@@ -28,3 +28,10 @@ def post_detail(request, pk):
       
    }
    return render(request, 'blog/post_detail.html', context)    
+
+def post_edit(request, pk):
+   post = PostModel.objects.get(id=pk)
+   context={
+      
+   }
+   return(request, 'blog/post_edit.html', context)
