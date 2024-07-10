@@ -43,4 +43,9 @@ def post_edit(request, pk):
       'post' : post,
       'form' : form,
    }
-   return render(request, 'blog/post_edit.html', context)
+   return render(request, 'blog/post_edit.html', context)\
+   
+def post_delete(request, pk):
+
+   return render(request, 'blog/post_delete.html')
+
