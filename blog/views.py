@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import PostModel
-from .forms import PostModelForm
+from .forms import PostModelForm, PostUpdateForm
 
 # Create your views here.
 def index(request):
