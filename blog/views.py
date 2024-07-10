@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import PostModel
 from .forms import PostModelForm, PostUpdateForm, CommentForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def index(request):
     posts = PostModel.objects.all()
     if request.method == 'POST':
@@ -20,7 +22,7 @@ def index(request):
         'form' : form
     }
     return render(request, 'blog/index.html', context)
-
+@login_required
 def post_detail(request, pk):
    post = PostModel.objects.get(id=pk)
    if request.method == 'Post':
@@ -39,6 +41,7 @@ def post_detail(request, pk):
    }
    return render(request, 'blog/post_detail.html', context)    
 
+@login_required
 def post_edit(request, pk):
    post = PostModel.objects.get(id=pk)
    if request.method == 'POST':
@@ -53,7 +56,8 @@ def post_edit(request, pk):
       'form' : form,
    }
    return render(request, 'blog/post_edit.html', context)\
-   
+
+@login_required  
 def post_delete(request, pk):
    post = PostModel.objects.get(id=pk)
    if request.method == 'POST':
