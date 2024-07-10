@@ -41,6 +41,11 @@
                          {% endfor%}
                         </div>
                       </div>
+                      <form method="POST">
+                        {% csrf_token %}
+                        {{c_form|crispy}}
+                        <input class="btn btn-primary btn-sm" type="submit" value="Comment">
+                      </form>
                 </div>
               
             </div>
