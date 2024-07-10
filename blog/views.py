@@ -25,6 +25,12 @@ def post_detail(request, pk):
    post = PostModel.objects.get(id=pk)
    if request.method == 'Post':
       c_form = CommentForm(request.POST)
+      if c_form.is_valid():
+        instance = c_form.save(commit=False)
+        instance.user = request.user
+        instance.post = post
+        instance.save()
+        return redirect('blog-post-detail')
    else:
       c_form = CommentForm()
    context = {
