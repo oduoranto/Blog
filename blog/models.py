@@ -12,6 +12,9 @@ class PostModel(models.Model):
     class Meta:
         ordering = ('-date_created',)
 
+    def comment_count(self):
+        return self.comment_set.all().count()
+
     def __str__(self):
         return self.title
 
