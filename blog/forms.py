@@ -13,7 +13,7 @@ class PostUpdateForm(forms.ModelForm):
         fields = ('title', 'content')        
 
 class CommentForm(forms.ModelForm):
-    content = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Add comment here'}))
+    content = forms.CharField(label='',widget=forms.TextInput(attrs={'placeholder': 'Add comment here...'}))
     class Meta:
         model = Comment
         fields =('content',)
