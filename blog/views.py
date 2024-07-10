@@ -32,6 +32,6 @@ def post_detail(request, pk):
 def post_edit(request, pk):
    post = PostModel.objects.get(id=pk)
    context={
-      
+      'post' : post,
    }
    return(request, 'blog/post_edit.html', context)
