@@ -3,4 +3,5 @@ from .import views
 
 urlpatterns = [
     path('blog/', views.index, name='index-blog'),
+    path('post_detail', views.post_detail, name='blog-post-detail')
 ]
