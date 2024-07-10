@@ -36,9 +36,7 @@
                         <div style="height: 250px; overflow-y: scroll;" class="card card-body">
                             {% for comment in post.comment_set.all%}
                          <p class="text-justify">
-                            The game ended 2-1 with goals from  Dani olmo and 
-                            Yamal for spain and Colo-muani for France
-
+                           {{comment.content}}
                          </p>
                          {% endfor%}
                         </div>
