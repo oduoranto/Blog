@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import PostModel
-from .forms import PostModelForm, PostUpdateForm
+from .forms import PostModelForm, PostUpdateForm, CommentForm
 
 # Create your views here.
 def index(request):
@@ -23,10 +23,13 @@ def index(request):
 
 def post_detail(request, pk):
    post = PostModel.objects.get(id=pk)
-   
+   if request.method == 'Post':
+      c_form = CommentForm(request.POST)
+   else:
+      c_form = CommentForm()
    context = {
       'post': post,
-       
+       'c_form' : c_form,
    }
    return render(request, 'blog/post_detail.html', context)    
 
