@@ -22,7 +22,7 @@ def index(request):
     return render(request, 'blog/index.html', context)
 
 def post_detail(request, pk):
-   post = PostModel.object.get(id=pk)
+   post = PostModel.objects.get(id=pk)
    context = {
       'post': post,
       
