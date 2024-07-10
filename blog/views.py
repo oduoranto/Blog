@@ -30,7 +30,7 @@ def post_detail(request, pk):
         instance.user = request.user
         instance.post = post
         instance.save()
-        return redirect('blog-post-detail')
+        return redirect('blog-post-detail', pk=post.id)
    else:
       c_form = CommentForm()
    context = {
