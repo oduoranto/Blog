@@ -34,9 +34,9 @@ def post_edit(request, pk):
    post = PostModel.objects.get(id=pk)
    if request.method == 'POST':
       form = PostUpdateForm(request.POST, instance=post)
-      if post.is_valid():
+      if form.is_valid():
          form.save()
-         return redirect('blog-post-detail')
+         return redirect('blog-post-detail', pk=post.id)
    else:
       form = PostUpdateForm(instance=post)  
    context={
